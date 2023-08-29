@@ -11,8 +11,8 @@ function App() {
     <BrowserRouter>  
         <Routes>
           <Route path="/Issue" element={<Issue/>}/>
-          <Route path="/ownIssueDetails/:id" element={<OwnIssueDetails/>}/>
-         <Route path='/NewIssue' element={<NewIssue/>} /> 
+          <Route path="/ownIssueDetails/:index" element={<OwnIssueDetails/>}/>
+          <Route path='/NewIssue' element={<NewIssue/>} /> 
           <Route  path="/" element={<Issue/>} />
           <Route path="/issue/:issueNumber" element={<IssueDetails/>} />
         </Routes>

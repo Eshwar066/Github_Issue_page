@@ -3,9 +3,10 @@ import { useParams } from "react-router-dom";
 import "./OwnIssueDetails.scss";
 
 const OwnIssueDetails = () => {
-    const { id } = useParams();
+    const { index } = useParams();
+    console.log(index);
     const [newData, setNewData] = useState([]);
-    const [issue, setIssue] = useState(null);
+    // const [issue, setIssue] = useState(null);
     const [comment, setComment] = useState('');
     const [comments, setComments] = useState([]);
 
@@ -15,9 +16,25 @@ const OwnIssueDetails = () => {
             setNewData(JSON.parse(savedData));
         }
 
-        const selectedIssue = newData.find(item => item.id === id);
-        setIssue(selectedIssue);
-    }, [id, newData]);
+       
+    }, []);
+
+    useEffect(() => {
+        const storedIssues = JSON.parse(localStorage.getItem('issues') || '[]');
+        setComments(storedIssues);
+       
+    }, []);
+ 
+    const validIndex = parseInt(index, 10);
+    if (isNaN(validIndex) || validIndex < 0 || validIndex >= newData.length) {
+        console.log('Invalid index');
+        return null;
+    }
+ 
+    const commentres = newData[validIndex];
+    // console.log(commentres);
+
+
 
     const handleSubmitComment = (e) => {
         e.preventDefault();
@@ -32,11 +49,11 @@ const OwnIssueDetails = () => {
             <h1>Issue Details</h1>
             
             <div>
-            {issue &&(
+            {commentres &&(
             <div>
-            <h2>{issue.title}</h2>
+            <h2>{commentres.title}</h2>
                         <p>login: you</p>
-                        <p>Issue Number: #{issue.id}</p>
+                        <p>Issue Number: #{commentres.id}</p>
                         <p>Status: open</p>
                         {/* <p>Created At: {new Date()}</p>
                         <p>Updated At: {new Date()}</p> */}
@@ -47,11 +64,11 @@ const OwnIssueDetails = () => {
             </div>            
 
 
-            {issue && (
+            {commentres && (
                 <div>
                     {/* <h4>{issue.title}</h4> */}
                     <h3>Description</h3>
-                    <p>{issue.description}</p>
+                    <p>{commentres.description}</p>
                 </div>
             )}
 

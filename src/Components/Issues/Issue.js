@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Issue.scss';
 import axios from 'axios';
 import { Link } from 'react-router-dom'
-// import NewIssue from '../NewIssue/NewIssue';
+import NewIssue from '../NewIssue/NewIssue';
 
 
 const Issue = () => {
@@ -69,12 +69,12 @@ const Issue = () => {
                     <ul className="list-container">
 
                         {newData.map((issue,index) => (
-                            <li key={issue.id}>
+                            <li key={index}>
                                 <div className="list">
                                     <div>
                                         <div className="title">
                                             <span className='icon'>⊙</span>
-                                            <Link to={`/ownIssueDetails/${issue.id}`}  >
+                                            <Link to={`/ownIssueDetails/${index}`}  >
                                                 <a> {issue.title} </a>
                                             </Link>
                                         </div>
