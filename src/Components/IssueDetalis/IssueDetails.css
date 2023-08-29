@@ -1,0 +1,60 @@
+
+.issueDetails{
+    padding: 20px;
+    width: 80%;
+    background-color: #ccc;
+    /* height: 100vh;  */
+    padding: 10px 200px 5px 100px;
+}
+.markdown-container {
+    padding: 10px;
+    margin: 1rem 0;
+  }
+  
+  .comment-box {
+    margin-top: 2rem;
+  }
+  
+  .comment-box textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+  }
+  
+  .comment-box button {
+    margin-top: 0.5rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+  }
+  
+  .comment-list {
+    margin-top: 2rem;
+  }
+  
+  .comment {
+    background-color: #f7f7f7;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+  }
+  
+  .comment p {
+    margin: 0;
+  }
+  
+  .comment p:last-child {
+    margin-top: 0.5rem;
+    color: #999;
+  }
+  
+  .comment p:last-child::before {
+    content: '--';
+  }
+  
